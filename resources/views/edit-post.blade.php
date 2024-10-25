@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <button class="back-button" onclick="window.history.back()">Tilbake</button>
     <h1>Rediger blogginnlegg</h1>
     <form action="{{ route('update-post', $post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
