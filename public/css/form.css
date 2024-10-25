@@ -1,0 +1,65 @@
+:root {
+    --navbar-background-color: #310881;
+    --button-background-color: #9864ff;
+    --background-color: #efeee9;
+    --card-background-color: #ffffff;
+    --text-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--text-color);
+}
+
+input[type="submit"] {
+    background: var(--button-background-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    background: var(--navbar-background-color);
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px;
+}
+
+nav > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+}
+
+h1 {
+    color: var(--text-color);
+    margin: 20px;
+    margin-top: 20px;
+}
