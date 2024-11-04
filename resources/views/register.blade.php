@@ -12,7 +12,6 @@
     <header>
         <nav>
             <a href="/"> <img class="navbar-logo" src="/turidsNeglsalong.png" alt="Navbar logo"></a>
-            <!-- <a href="/login"> <button onclick="" class="login-button"><img src="/login.png" alt="login"> Logg inn</button></a> -->
         </nav>
     </header>
     <h1>Registrer deg </h1>

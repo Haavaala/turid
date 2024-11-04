@@ -47,12 +47,10 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
 
-        // Log the login attempt details
-        // dd('Login attempt:', ['email' => $request->email]);
-
         // Check if the user exists
         $user = User::where('email', $request->email)->first();
 
+        //if its not a user, display message 
         if (!$user) {
             dd('Login attempt failed: No user found with email ' . $request->email);
             return back()->withErrors(['email' => 'No user found with this email.']);
@@ -61,7 +59,6 @@ class AuthController extends Controller
         // Check the password
         if (Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            // dd('User logged in successfully: ' . $user->email);
             return redirect('/')->with('success', 'Logged in successfully!');
         }
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Turids Neglsalong</title>
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 </head>
 
@@ -13,10 +13,10 @@
     <form action="{{ route('publish') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="title">Tittel</label>
-        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="title" placeholder="Skriv en tittel her" required>
 
         <label for="text">Tekst</label>
-        <textarea name="text" id="text" cols="30" rows="10" placeholder="Text" required></textarea>
+        <textarea name="text" id="text" cols="30" rows="10" placeholder="Skriv en tekst her" required></textarea>
 
         <label for="image">Bilde (valgfritt*)</label>
         <input type="file" name="image" id="image">

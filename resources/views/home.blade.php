@@ -12,7 +12,7 @@
     <header>
         <nav>
             <a href="/"> <img class="navbar-logo" src="/turidsNeglsalong.png" alt="Navbar logo"></a>
-
+            <!-- Display buttons based on of the user is logged in or not  -->
             @if(Auth::check())
             <div class="button-container">
 
@@ -36,6 +36,7 @@
                 @else
                 @foreach($posts as $post)
                 <div class="card">
+                    <!-- If post contains image, display it  -->
                     @if($post->image)
                     <img class="blog-image" src="{{ $post->image }}" alt="Post Image">
                     @endif
@@ -46,6 +47,7 @@
                             <p class="written-by">skrevet av</p>
                             <p class="author">{{ $post->user_name ?? 'Unknown Author' }}</p>
                         </div>
+                        <!-- check if the logged in user is the same as the one that wrote the post  -->
                         @if(Auth::check() && Auth::user()->id == $post->user_id)
                         <div class="editButton">
                             <a href="{{ url('edit-post/' . $post->post_id) }}"><img class="editPost" src="/edit.png" alt=""> </a>

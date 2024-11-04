@@ -13,6 +13,7 @@ class PostsController extends Controller
 {
     public function index()
     {
+        //Join the user table and the post table with the user_id
         $posts = DB::table('posts')
             ->join('user', 'posts.user_id', '=', 'user.id')
             ->select('posts.id as post_id', 'posts.title', 'posts.image', 'posts.text', 'user.id as user_id', 'user.name as user_name')
@@ -34,10 +35,12 @@ class PostsController extends Controller
         $post = new Post();
         $post->title = $request->input('title');
         $post->text = $request->input('text');
-        $post->image = null; // Default image value
-        $post->user_id = Auth::id(); // Assign the logged-in user's ID
+        //default image value
+        $post->image = null;
+        // Assign the logged-in user's ID
+        $post->user_id = Auth::id();
 
-        // Handle image upload (optional)
+        // Handle image upload 
         if ($request->hasFile('image')) {
             // Store image as a string (you can choose a better approach like storing it in a storage directory)
             $imagePath = $request->file('image')->store('images', 'public');
@@ -64,19 +67,21 @@ class PostsController extends Controller
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
-        $post = Post::findOrFail($id); // Find the post by ID
+        // Find the post by ID
+        $post = Post::findOrFail($id);
 
         // Update the post fields
         $post->title = $request->input('title');
         $post->text = $request->input('text');
 
-        // Handle image upload (optional)
+        // Handle image upload
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
             $post->image = $imagePath;
         }
 
-        $post->save(); // Save changes to the database
+        // Save changes to the database
+        $post->save();
 
         return redirect('/')->with('success', 'Post updated successfully!');
     }
